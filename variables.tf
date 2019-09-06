@@ -17,7 +17,7 @@ variable "use_consul_template" {
 
 variable "use_nomad" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "use_vault" {
@@ -110,7 +110,7 @@ variable "public_key" {
 
 variable "instance_type" {
   type = string
-  default = "t2.micro"
+  default = "t3.2xlarge"
 }
 
 variable "desired_servers" {
