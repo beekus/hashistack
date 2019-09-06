@@ -1,12 +1,6 @@
-# Terraform AWS Hashistack
+# DuckyCorp AWS HashiStack
 
-This is a terraform module for setting up a Hashistack on AWS.
-
-The HashiStack consists of Consul, Vault, and Nomad on infrastructure
-launched by Terraform.
-
-After a short initial setup a user is able to deploy
-containerized applications to a Nomad cluster.
+This is the DuckyCorp HashiStack for running Nomad, Consul, and Vault on AWS.
 
 ### Usage
 
@@ -21,20 +15,3 @@ containerized applications to a Nomad cluster.
 
 - Terraform 12+
 - AWS Account Key and Secret
-
-### Remaining Todos
-
-- Write out How to Use Docs
-  - Variables necessary
-  - Commands for ssh-ing
-  - Commands for accessing
-  - Commands for running nomad
-  - Use TF output if possible
-- Ensure vault and nomad integration works properly
-- Config Audit
-
-### ~~Plagiarized from~~ Inspired By
-
-- https://github.com/hashicorp/nomad/tree/master/terraform
-- https://github.com/nicholasjackson/terraform-aws-hashicorp-suite
-- https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code/hashistack
