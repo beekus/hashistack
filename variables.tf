@@ -17,7 +17,7 @@ variable "use_consul_template" {
 
 variable "use_nomad" {
   type = bool
-  default = false
+  default = true
 }
 
 variable "use_vault" {
