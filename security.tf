@@ -10,6 +10,7 @@ resource "aws_security_group_rule" "allow_http_inbound" {
   to_port     = "${var.http_port_to}"
   protocol    = "tcp"
   cidr_blocks = ["${var.whitelist_ip}"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -22,6 +23,7 @@ resource "aws_security_group_rule" "allow_rpc_inbound" {
   to_port     = "${var.rpc_port}"
   protocol    = "tcp"
   cidr_blocks = ["${var.whitelist_ip}"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -34,6 +36,7 @@ resource "aws_security_group_rule" "allow_serf_tcp_inbound" {
   to_port     = "${var.serf_port}"
   protocol    = "tcp"
   cidr_blocks = ["${var.whitelist_ip}"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -46,6 +49,7 @@ resource "aws_security_group_rule" "allow_serf_udp_inbound" {
   to_port     = "${var.serf_port}"
   protocol    = "udp"
   cidr_blocks = ["${var.whitelist_ip}"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -58,6 +62,7 @@ resource "aws_security_group_rule" "allow_ssh_inbound" {
   to_port     = "${var.ssh_port}"
   protocol    = "tcp"
   cidr_blocks = ["${var.whitelist_ip}"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -70,6 +75,7 @@ resource "aws_security_group_rule" "allow_all_outbound" {
   to_port     = 0
   protocol    = "-1"
   cidr_blocks = ["0.0.0.0/0"]
+  description = "${var.default_description}"
 
   security_group_id = "${aws_security_group.lc_security_group.id}"
 }
@@ -89,7 +95,7 @@ resource "aws_security_group" "lc_security_group" {
 // == PERMISSIONS ==
 // =================
 
-// Allow consul & nomad auto-join
+// Allow consul & nomad auto-join-ducky
 
 data "aws_iam_policy_document" "describe-instances" {
   statement {
@@ -112,24 +118,24 @@ data "aws_iam_policy_document" "assume-role" {
   }
 }
 
-resource "aws_iam_policy" "auto-join" {
-  name        = "auto-join"
+resource "aws_iam_policy" "auto-join-ducky" {
+  name        = "auto-join-ducky"
   description = "Allows Consul nodes to describe instances for joining."
   policy      =  "${data.aws_iam_policy_document.describe-instances.json}"
 }
 
-resource "aws_iam_role" "auto-join" {
-  name = "auto-join"
+resource "aws_iam_role" "auto-join-ducky" {
+  name = "auto-join-ducky"
   assume_role_policy = "${data.aws_iam_policy_document.assume-role.json}"
 }
 
-resource "aws_iam_policy_attachment" "auto-join" {
-  name       = "auto-join"
-  roles      = ["${aws_iam_role.auto-join.name}"]
-  policy_arn = "${aws_iam_policy.auto-join.arn}"
+resource "aws_iam_policy_attachment" "auto-join-ducky" {
+  name       = "auto-join-ducky"
+  roles      = ["${aws_iam_role.auto-join-ducky.name}"]
+  policy_arn = "${aws_iam_policy.auto-join-ducky.arn}"
 }
 
-resource "aws_iam_instance_profile" "auto-join" {
-  name = "auto-join"
-  role = "${aws_iam_role.auto-join.name}"
+resource "aws_iam_instance_profile" "auto-join-ducky" {
+  name = "auto-join-ducky"
+  role = "${aws_iam_role.auto-join-ducky.name}"
 }
