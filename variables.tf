@@ -141,6 +141,13 @@ variable "retry_join" {
   default = {
     provider  = "aws"
     tag_key   = "ConsulAutoJoin"
-    tag_value = "auto-join"
+    tag_value = "auto-join-ducky"
   }
+}
+
+// == DESCRIPTIONS ==
+
+variable "default_description" {
+  type = string
+  default = "for duckycorp demo - can remove after HashiConf 2019"
 }
