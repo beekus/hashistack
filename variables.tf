@@ -110,7 +110,7 @@ variable "public_key" {
 
 variable "instance_type" {
   type = string
-  default = "t3.2xlarge"
+  default = "t2.micro"
 }
 
 variable "desired_servers" {
