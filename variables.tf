@@ -110,12 +110,12 @@ variable "instance_type" {
 
 variable "desired_servers" {
   type = number
-  default = 3
+  default = 1
 }
 
 variable "max_servers" {
   type = number
-  default = 3
+  default = 1
 }
 
 variable "min_servers" {
