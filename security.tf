@@ -139,3 +139,12 @@ resource "aws_iam_instance_profile" "auto-join-ducky" {
   name = "auto-join-ducky"
   role = "${aws_iam_role.auto-join-ducky.name}"
 }
+
+// ==========
+// == KEYS ==
+// ==========
+
+resource "aws_key_pair" "terraform" {
+  key_name   = "${var.key_name}"
+  public_key = "${var.public_key}"
+}
