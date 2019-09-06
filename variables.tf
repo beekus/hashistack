@@ -2,7 +2,7 @@
 
 variable "use_docker" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "use_consul" {
@@ -12,17 +12,17 @@ variable "use_consul" {
 
 variable "use_consul_template" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "use_nomad" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "use_vault" {
   type = bool
-  default = true
+  default = false
 }
 
 // == VERSIONS ==
@@ -110,12 +110,12 @@ variable "instance_type" {
 
 variable "desired_servers" {
   type = number
-  default = 1
+  default = 3
 }
 
 variable "max_servers" {
   type = number
-  default = 1
+  default = 3
 }
 
 variable "min_servers" {
@@ -125,7 +125,7 @@ variable "min_servers" {
 
 variable "cluster_name" {
   type = string
-  default = "hashistack"
+  default = "duckycorp-hashistack"
 }
 
 variable "associate_public_ip_address" {
