@@ -14,4 +14,4 @@ This is the DuckyCorp HashiStack for running Nomad, Consul, and Vault on AWS.
 ### Dependencies
 
 - Terraform 12+
-- AWS Account Key and Secret
+- AWS Account Key and Secret 
